@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Robson Louro Legramante — Especialista de Dados</title>
+<meta name="description" content="Especialista de Dados com atuação em fintechs, bancos e tecnologia. SQL, Python, BI e automação com IA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#12161d;
+    --ink-soft:#454e5c;
+    --paper:#f5f6f8;
+    --paper-raised:#ffffff;
+    --line:#dde1e7;
+    --petrol:#26495c;
+    --petrol-deep:#173340;
+    --terminal:#4fbd82;
+    --terminal-dim:#2f6f4c;
+
+    --display:'Fraunces', serif;
+    --body:'Inter', system-ui, sans-serif;
+    --mono:'JetBrains Mono', 'Courier New', monospace;
+
+    --maxw:920px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:var(--body);
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  ::selection{background:var(--terminal); color:var(--petrol-deep);}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+
+  /* NAV */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(245,246,248,0.86);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--maxw); margin:0 auto; padding:16px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .nav-name{
+    font-family:var(--mono); font-size:14px; font-weight:600;
+    color:var(--petrol-deep); letter-spacing:0.02em;
+  }
+  .nav-links{display:flex; gap:24px; list-style:none; margin:0; padding:0;}
+  .nav-links a{
+    font-size:14px; text-decoration:none; color:var(--ink-soft);
+    font-weight:500; transition:color .15s ease;
+  }
+  .nav-links a:hover{color:var(--petrol);}
+  .nav-links a:focus-visible, a:focus-visible{
+    outline:2px solid var(--petrol); outline-offset:3px; border-radius:2px;
+  }
+  @media (max-width:640px){ .nav-links{display:none;} }
+
+  /* HERO */
+  .hero{padding:76px 0 56px;}
+  .eyebrow{
+    font-family:var(--mono); font-size:13px; color:var(--terminal-dim);
+    letter-spacing:0.04em; margin:0 0 18px;
+  }
+  .eyebrow::before{content:"$ "; color:var(--terminal-dim);}
+  h1{
+    font-family:var(--display); font-weight:600; font-size:clamp(2.3rem, 5vw, 3.4rem);
+    line-height:1.05; margin:0 0 14px; color:var(--petrol-deep);
+    letter-spacing:-0.01em;
+  }
+  .headline{
+    font-size:19px; color:var(--ink-soft); max-width:560px; margin:0 0 34px;
+    font-weight:400;
+  }
+
+  .terminal{
+    background:var(--petrol-deep);
+    border-radius:10px;
+    padding:20px 24px;
+    font-family:var(--mono);
+    font-size:14.5px;
+    color:#d9e6df;
+    box-shadow:0 18px 40px -18px rgba(23,51,64,0.55);
+    max-width:640px;
+    overflow-x:auto;
+  }
+  .terminal .dots{display:flex; gap:6px; margin-bottom:14px;}
+  .terminal .dots span{width:9px; height:9px; border-radius:50%; background:#3a5765; display:inline-block;}
+  .terminal .prompt{color:var(--terminal);}
+  .terminal .line{white-space:pre;}
+  .terminal .cursor{
+    display:inline-block; width:8px; height:15px; background:var(--terminal);
+    margin-left:2px; vertical-align:-2px;
+    animation:blink 1s steps(1) infinite;
+  }
+  @keyframes blink{50%{opacity:0;}}
+
+  .cta-row{display:flex; gap:14px; flex-wrap:wrap; margin-top:32px;}
+  .cta{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:10px 18px; border-radius:7px;
+    font-size:14px; font-weight:600; text-decoration:none;
+    border:1px solid var(--line); background:var(--paper-raised);
+    color:var(--petrol-deep); transition:all .15s ease;
+  }
+  .cta:hover{border-color:var(--petrol); transform:translateY(-1px);}
+  .cta.primary{background:var(--petrol-deep); color:#fff; border-color:var(--petrol-deep);}
+  .cta.primary:hover{background:var(--petrol);}
+
+  /* SECTIONS */
+  section{padding:52px 0;}
+  section + section{border-top:1px solid var(--line);}
+  .section-label{
+    font-family:var(--mono); font-size:12.5px; color:var(--petrol);
+    letter-spacing:0.08em; text-transform:uppercase; margin:0 0 6px;
+  }
+  h2{
+    font-family:var(--display); font-size:1.7rem; font-weight:600;
+    color:var(--petrol-deep); margin:0 0 24px;
+  }
+  .lead{font-size:17px; color:var(--ink-soft); max-width:680px;}
+
+  /* SKILLS */
+  .skill-groups{display:grid; grid-template-columns:repeat(auto-fit, minmax(230px,1fr)); gap:22px; margin-top:8px;}
+  .skill-group h3{
+    font-family:var(--mono); font-size:12.5px; color:var(--ink-soft);
+    text-transform:uppercase; letter-spacing:0.06em; margin:0 0 10px; font-weight:600;
+  }
+  .tag-list{display:flex; flex-wrap:wrap; gap:8px;}
+  .tag{
+    font-family:var(--mono); font-size:13px; padding:5px 10px;
+    background:var(--paper-raised); border:1px solid var(--line); border-radius:5px;
+    color:var(--ink);
+  }
+
+  /* PROJECTS */
+  .project-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:20px; margin-top:8px;}
+  .project-card{
+    background:var(--paper-raised); border:1px solid var(--line); border-radius:12px;
+    padding:26px; display:flex; flex-direction:column; gap:12px;
+  }
+  .project-card .project-title{
+    font-family:var(--display); font-size:1.15rem; font-weight:600; color:var(--petrol-deep);
+  }
+  .project-card .project-desc{font-size:14.5px; color:var(--ink-soft); flex-grow:1;}
+  .project-card .project-link{
+    font-family:var(--mono); font-size:13px; font-weight:600; color:var(--petrol);
+    text-decoration:none; display:inline-flex; align-items:center; gap:6px;
+  }
+  .project-card .project-link:hover{text-decoration:underline;}
+  .project-card .project-link::before{content:"↗";}
+
+  /* AI CALLOUT */
+  .ai-section{
+    background:var(--petrol-deep); color:#e9eef0; border-radius:14px;
+    padding:40px 36px; margin:52px 0;
+  }
+  .ai-section .section-label{color:var(--terminal);}
+  .ai-section h2{color:#fff;}
+  .ai-section .lead{color:#c7d3d6;}
+  .ai-list{list-style:none; margin:22px 0 0; padding:0; display:grid; gap:14px;}
+  .ai-list li{
+    padding-left:22px; position:relative; font-size:15px; color:#d9e3e5;
+  }
+  .ai-list li::before{
+    content:"›"; position:absolute; left:0; color:var(--terminal); font-family:var(--mono); font-weight:600;
+  }
+
+  /* EXPERIENCE TIMELINE */
+  .timeline{position:relative; margin-top:8px;}
+  .timeline::before{
+    content:""; position:absolute; left:7px; top:6px; bottom:6px; width:1px; background:var(--line);
+  }
+  .job{position:relative; padding:0 0 40px 34px;}
+  .job:last-child{padding-bottom:4px;}
+  .job::before{
+    content:""; position:absolute; left:0; top:5px; width:15px; height:15px;
+    border-radius:50%; background:var(--paper); border:2px solid var(--petrol);
+  }
+  .job.current::before{background:var(--terminal); border-color:var(--terminal-dim);}
+  .job-meta{
+    display:flex; flex-wrap:wrap; align-items:baseline; gap:10px; margin-bottom:4px;
+  }
+  .job-role{font-family:var(--display); font-size:1.2rem; font-weight:600; color:var(--petrol-deep);}
+  .job-dates{font-family:var(--mono); font-size:12.5px; color:var(--ink-soft);}
+  .job-company{font-size:14.5px; color:var(--ink-soft); font-weight:600; margin-bottom:10px;}
+  .job-context{font-size:14.5px; color:var(--ink-soft); margin-bottom:12px; max-width:640px;}
+  .job-bullets{margin:0; padding-left:18px; display:grid; gap:6px;}
+  .job-bullets li{font-size:14.5px; color:var(--ink); max-width:660px;}
+
+  /* FOOTER */
+  footer{padding:48px 0 60px;}
+  .footer-inner{
+    display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:20px;
+  }
+  .footer-links{display:flex; gap:20px; flex-wrap:wrap;}
+  .footer-links a{font-size:14px; text-decoration:none; color:var(--petrol-deep); font-weight:600;}
+  .footer-links a:hover{text-decoration:underline;}
+  .footer-note{font-family:var(--mono); font-size:12px; color:var(--ink-soft);}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <span class="nav-name">robson.legramante</span>
+    <ul class="nav-links">
+      <li><a href="#sumario">Perfil</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#ia">IA</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#experiencia">Experiência</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <h1>Robson Louro Legramante</h1>
+    <p class="headline">Especialista de Dados — SQL, Python, BI e automação com IA, aplicados a produtos de crédito, fintechs e ambientes de negócio complexos.</p>
+
+    <div class="terminal" role="img" aria-label="Terminal simulando uma consulta SQL sobre o perfil profissional de Robson">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div id="typed-line" class="line"><span class="prompt">$</span> </div>
+    </div>
+
+    <div class="cta-row">
+      <a class="cta primary" href="mailto:robson@robsonlouro.com.br">E-mail</a>
+      <a class="cta" href="https://linkedin.com/in/robsonlouro" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="cta" href="https://github.com/robsonlouro" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </section>
+
+  <section class="wrap" id="sumario">
+    <p class="section-label">Perfil</p>
+    <h2>Sumário executivo</h2>
+    <p class="lead">
+      Especialista de Dados com atuação consolidada em empresas de tecnologia, fintechs e banco,
+      com foco em produtos de crédito, governança de indicadores e estruturação de ambientes de
+      Business Intelligence. Forte em SQL e Python, modelagem de dados, qualidade de dados e automação
+      de rotinas analíticas (Airflow), com vivência em BI (Tableau, AWS QuickSight, Looker, Power BI)
+      e ambientes em nuvem (AWS/S3). Perfil consultivo, com interface direta com áreas de negócio e
+      liderança, traduzindo dados complexos em insights acionáveis.
+    </p>
+  </section>
+
+  <section class="wrap" id="skills">
+    <p class="section-label">Stack</p>
+    <h2>Competências técnicas</h2>
+    <div class="skill-groups">
+      <div class="skill-group">
+        <h3>Linguagens</h3>
+        <div class="tag-list"><span class="tag">SQL</span><span class="tag">Python</span></div>
+      </div>
+      <div class="skill-group">
+        <h3>Business Intelligence</h3>
+        <div class="tag-list">
+          <span class="tag">Tableau</span><span class="tag">AWS QuickSight</span>
+          <span class="tag">Looker</span><span class="tag">Power BI</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Cloud &amp; Orquestração</h3>
+        <div class="tag-list"><span class="tag">AWS (S3)</span><span class="tag">Airflow</span></div>
+      </div>
+      <div class="skill-group">
+        <h3>Automação</h3>
+        <div class="tag-list"><span class="tag">n8n</span><span class="tag">Python</span></div>
+      </div>
+      <div class="skill-group">
+        <h3>Estatística</h3>
+        <div class="tag-list">
+          <span class="tag">Regressão</span><span class="tag">Testes A/B</span><span class="tag">Análise temporal</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Dados</h3>
+        <div class="tag-list"><span class="tag">Modelagem de dados</span><span class="tag">Governança de dados</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="ai-section" id="ia">
+      <p class="section-label">$ ./ia --stack</p>
+      <h2>IA &amp; automação</h2>
+      <p class="lead">Uso IA como parte real do fluxo de trabalho — da estruturação de queries e documentação técnica até a construção de agentes autônomos como projetos pessoais.</p>
+      <ul class="ai-list">
+        <li>Desenvolvimento de agentes de suporte com LLMs em Python, com arquitetura de abstração de provider, ferramentas (tools) e integração multi-canal via Telegram e WhatsApp (Meta Cloud API)</li>
+        <li>Automação de rotinas analíticas e fluxos de negócio combinando IA e n8n</li>
+        <li>Uso de IA no dia a dia de analytics — estruturação de queries, revisão técnica e documentação</li>
+        <li>Projetos pessoais como laboratório contínuo de experimentação com LLMs e agentes autônomos</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="wrap" id="projetos">
+    <p class="section-label">Código</p>
+    <h2>Projetos</h2>
+    <p class="lead">Projetos pessoais onde coloco em prática agentes de IA de ponta a ponta — da orquestração ao deploy.</p>
+    <div class="project-grid">
+      <div class="project-card">
+        <div class="project-title">Botzinho</div>
+        <p class="project-desc">Assistente pessoal em linguagem natural via Telegram e WhatsApp, para tarefas, gastos e lembretes. Python, SQLAlchemy e agendamento automático de rotinas.</p>
+        <div class="tag-list">
+          <span class="tag">Python</span><span class="tag">SQLAlchemy</span><span class="tag">LLM</span>
+        </div>
+        <div class="tag-list" style="margin-top:2px;">
+          <a class="project-link" href="https://github.com/robsonlouro/botzinho" target="_blank" rel="noopener">GitHub</a>
+          <a class="project-link" href="https://t.me/meu_theo_bot" target="_blank" rel="noopener">Telegram — AssisTheo</a>
+          <a class="project-link" href="https://wa.me/5513982036615" target="_blank" rel="noopener">WhatsApp — CecilIA</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-title">Los Louros — Agente de Suporte</div>
+        <p class="project-desc">POC de agente de atendimento para uma pizzaria fictícia, com orquestração de ferramentas, cardápio completo e regras de venda cruzada, integrado a Telegram e WhatsApp.</p>
+        <div class="tag-list">
+          <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">LLM</span>
+        </div>
+        <a class="project-link" href="https://github.com/robsonlouro/pokemon-support-agent" target="_blank" rel="noopener">github.com/robsonlouro/pokemon-support-agent</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="experiencia">
+    <p class="section-label">Trajetória</p>
+    <h2>Experiência profissional</h2>
+
+    <div class="timeline">
+
+      <div class="job current">
+        <div class="job-meta">
+          <span class="job-role">Especialista de Dados</span>
+        </div>
+        <div class="job-company">Caveo Tecnologia</div>
+        <p class="job-context">Analista de dados embarcado na área de Produto, traduzindo perguntas de negócio em métricas, análises e produtos de dados que sustentam decisão.</p>
+        <ul class="job-bullets">
+          <li>Definição de métricas canônicas, construção e manutenção de painéis operacionais (Metabase) e consultas SQL em Snowflake, em arquitetura medallion (Bronze/Silver/Gold) sob governança git-first (feature branch, PR, CI e deploy versionado)</li>
+          <li>Análises de coorte, retenção e reconciliação de dados entre sistemas internos e parceiros, buscando uma fonte única de verdade confiável</li>
+          <li>Analítica de IA aplicada a atendimento: medição e monitoramento de contenção de agentes de IA, investigação de transbordo IA→humano e reconciliação com parceiros de atendimento</li>
+          <li>Uso de IA no próprio fluxo de trabalho — orquestração de agentes para briefings e gestão de tarefas, e apoio em experimentação para validação de hipóteses de produto</li>
+          <li>Abordagem orientada à precisão: prioriza o fechamento de definições de métricas junto aos donos do negócio antes de entregar números</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-meta">
+          <span class="job-role">Analista Sênior de Dados</span>
+        </div>
+        <div class="job-company">Escale Tecnologia</div>
+        <p class="job-context">Referência técnica em Analytics, sustentando e evoluindo o ecossistema de dados que apoia decisões estratégicas em empresa de tecnologia especializada em soluções de IA para vendas.</p>
+        <ul class="job-bullets">
+          <li>Desenvolvimento e evolução de dashboards e KPIs para monitoramento de performance e funis de vendas</li>
+          <li>Estruturação, revisão e padronização de consultas SQL, garantindo qualidade, consistência e performance das análises</li>
+          <li>Sustentação de jobs, pipelines e rotinas agendadas, assegurando integridade e disponibilidade dos dados</li>
+          <li>Atuação consultiva junto às áreas de negócio na definição de métricas e regras de negócio</li>
+          <li>Contribuição na modelagem de dados e definição de padrões analíticos</li>
+          <li>Revisão técnica e apoio ao time em decisões relacionadas a modelagem, queries e boas práticas</li>
+          <li>Automação de processos analíticos utilizando Python e n8n, aumentando eficiência operacional</li>
+          <li>Participação em iniciativa estratégica de otimização de custos em ambiente de Business Intelligence (Looker), com foco em governança e uso eficiente de recursos</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-meta">
+          <span class="job-role">Analista Sênior de Dados</span>
+        </div>
+        <div class="job-company">Banco PAN</div>
+        <p class="job-context">Monitoramento e análise de performance operacional com foco em analytics para produtos de crédito (empréstimos, consignado, financiamento de veículos e crédito com garantia).</p>
+        <ul class="job-bullets">
+          <li>Desenvolvimento e manutenção de painéis gerenciais para monitoramento de KPIs e performance operacional</li>
+          <li>Migração de dashboards de Tableau para AWS QuickSight, modernizando o ambiente de Business Intelligence</li>
+          <li>Desenvolvimento e otimização de queries SQL para tratamento de grandes volumes de dados</li>
+          <li>Automação de fluxos e bases de dados utilizando Airflow</li>
+          <li>Utilização de AWS (S3) para armazenamento e integração de dados em ambiente cloud</li>
+          <li>Garantia de qualidade, integridade e validação dos dados utilizados nas análises</li>
+          <li>Apoio analítico às áreas operacionais na interpretação de indicadores e direcionamento de ações</li>
+          <li>Apresentação de resultados para gerência e C-level, apoiando acompanhamento de OKRs e metas estratégicas</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-meta">
+          <span class="job-role">Analista Sênior de Dados</span>
+        </div>
+        <div class="job-company">PraValer</div>
+        <p class="job-context">Suporte à liderança por meio de análises avançadas e estruturação de indicadores voltados à performance e crescimento do negócio.</p>
+        <ul class="job-bullets">
+          <li>Condução técnica de projetos analíticos estratégicos, definindo escopo, priorização e direcionamento das entregas</li>
+          <li>Desenvolvimento de modelos analíticos e estudos preditivos para identificação de oportunidades e mitigação de riscos</li>
+          <li>Aplicação de técnicas estatísticas (regressão, testes de hipótese, análise temporal e segmentação) para suporte à tomada de decisão</li>
+          <li>Estruturação e governança de dados, garantindo qualidade, consistência e confiabilidade das informações</li>
+          <li>Desenvolvimento e otimização de consultas SQL e análises em Python para exploração de grandes volumes de dados</li>
+          <li>Construção de dashboards executivos e ambientes de self-service BI (Looker, Power BI, Tableau)</li>
+          <li>Apresentação de análises e insights para gerência e C-level, apoiando definição de metas e direcionamento estratégico</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-meta">
+          <span class="job-role">Especialista de Dados</span>
+        </div>
+        <div class="job-company">Facily</div>
+        <p class="job-context">Atuação junto às áreas de Produto e Negócio, estruturando análises e indicadores para suporte à evolução do produto e melhoria de performance.</p>
+        <ul class="job-bullets">
+          <li>Desenvolvimento de dashboards e métricas para acompanhamento de performance operacional e indicadores de negócio</li>
+          <li>Estruturação de sistemas de coleta e organização de dados, promovendo melhoria na qualidade e confiabilidade das informações</li>
+          <li>Condução de análises exploratórias e experimentos (testes A/B) para identificação de oportunidades de crescimento</li>
+          <li>Desenvolvimento de consultas SQL e análises estatísticas em Python para tratamento de grandes volumes de dados</li>
+          <li>Processamento de dados estruturados e não estruturados para geração de insights acionáveis</li>
+          <li>Automação de relatórios e rotinas analíticas, promovendo maior eficiência e escalabilidade</li>
+          <li>Atuação consultiva junto à gerência na priorização de demandas e definição de métricas estratégicas</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-meta">
+          <span class="job-role">Analista de Dados Pleno</span>
+        </div>
+        <div class="job-company">Banqi</div>
+        <p class="job-context">Suporte analítico às operações financeiras e definição de métricas estratégicas.</p>
+        <ul class="job-bullets">
+          <li>Desenvolvimento de análises exploratórias e testes de hipótese para identificação de oportunidades de melhoria</li>
+          <li>Construção e automação de relatórios e dashboards para acompanhamento de KPIs e OKRs</li>
+          <li>Extração e tratamento de dados utilizando SQL, com análises complementares em Python</li>
+          <li>Realização de análises de causa raiz e apoio em experimentos (testes A/B)</li>
+          <li>Estruturação e acompanhamento de métricas para suporte à tomada de decisão</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-meta">
+          <span class="job-role">Analista de Dados Pleno</span>
+        </div>
+        <div class="job-company">OLX Brasil</div>
+        <p class="job-context">Customer Experience, com foco em estruturação de métricas, planejamento e melhoria de eficiência operacional.</p>
+        <ul class="job-bullets">
+          <li>Desenvolvimento de relatórios e dashboards para acompanhamento de performance e SLA</li>
+          <li>Estudos de dimensionamento e planejamento de capacidade operacional</li>
+          <li>Automação de extração e atualização de relatórios</li>
+          <li>Análises de dados e apresentação de resultados para apoio à tomada de decisão</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-meta">
+          <span class="job-role">Analista de Dados Pleno</span>
+        </div>
+        <div class="job-company">99</div>
+        <p class="job-context">Extração, análise e validação de dados voltados à melhoria da experiência do cliente e eficiência operacional.</p>
+        <ul class="job-bullets">
+          <li>Desenvolvimento de consultas SQL para extração e consolidação de dados</li>
+          <li>Construção de relatórios operacionais e acompanhamento de métricas</li>
+          <li>Análises exploratórias para identificação de oportunidades de melhoria</li>
+          <li>Validação e garantia de confiabilidade das informações utilizadas pelas áreas de negócio</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="wrap" id="contato">
+  <div class="footer-inner">
+    <div>
+      <p class="section-label" style="margin-bottom:10px;">Contato</p>
+      <div class="footer-links">
+        <a href="mailto:robson@robsonlouro.com.br">robson@robsonlouro.com.br</a>
+        <a href="https://linkedin.com/in/robsonlouro" target="_blank" rel="noopener">linkedin.com/in/robsonlouro</a>
+        <a href="https://github.com/robsonlouro" target="_blank" rel="noopener">github.com/robsonlouro</a>
+      </div>
+    </div>
+    <p class="footer-note">robsonlouro.com.br</p>
+  </div>
+</footer>
+
+<script>
+  // Typing animation for the hero terminal, respecting reduced-motion preference
+  const query = "SELECT carreira FROM robson WHERE stack = 'dados' AND ia = true;";
+  const target = document.getElementById('typed-line');
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function renderStatic(){
+    target.innerHTML = '<span class="prompt">$</span> ' + query;
+  }
+
+  if (prefersReduced) {
+    renderStatic();
+  } else {
+    let i = 0;
+    target.innerHTML = '<span class="prompt">$</span> <span class="cursor"></span>';
+    const typer = setInterval(() => {
+      i++;
+      const chunk = query.slice(0, i);
+      target.innerHTML = '<span class="prompt">$</span> ' + chunk + '<span class="cursor"></span>';
+      if (i >= query.length) clearInterval(typer);
+    }, 38);
+  }
+</script>
+
+</body>
+</html>
